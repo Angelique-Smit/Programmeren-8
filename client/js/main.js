@@ -1,5 +1,4 @@
 const url = "http://localhost:8000/email";
-const urlElevenlabs = 'https://api.elevenlabs.io/v1/text-to-speech/{voice_id}';
 const button = document.querySelector('button');
 let buttonDisabled = false;
 const email = document.getElementById('email');
@@ -27,22 +26,27 @@ document.querySelector('form').addEventListener('submit', async function(event) 
 
             console.log('Email successfully sent in!');
             const data = await response.json();
-            const ai = data.ai;
+            const dave = data.dave;
+            const claude = data.claude;
 
             let newResponse = document.createElement('div');
             let newPromptTitle = document.createElement('h3');
             let newPrompt = document.createElement('p');
             let humanNewMessageTitle = document.createElement('h3');
             let humanNewMessage = document.createElement('p');
-            let aiNewMessageTitle = document.createElement('h3');
-            let aiNewMessage = document.createElement('p');
+            let daveNewMessageTitle = document.createElement('h3');
+            let daveNewMessage = document.createElement('p');
+            let dave2NewMessageTitle = document.createElement('h3');
+            let dave2NewMessage = document.createElement('p');
 
             newPromptTitle.innerHTML = "Given Prompt:";
             newPrompt.innerHTML = human_prompt.value;
             humanNewMessageTitle.innerHTML = "You:";
             humanNewMessage.innerHTML = email.value;
-            aiNewMessageTitle.innerHTML = "Dave's response:";
-            aiNewMessage.innerHTML = ai;
+            daveNewMessageTitle.innerHTML = "Dave's response:";
+            daveNewMessage.innerHTML = dave;
+            dave2NewMessageTitle.innerHTML = "Dave's second response:";
+            dave2NewMessage.innerHTML = claude;
 
             newResponse.appendChild(newPromptTitle);
             newResponse.appendChild(newPrompt);
@@ -50,8 +54,11 @@ document.querySelector('form').addEventListener('submit', async function(event) 
             newResponse.appendChild(humanNewMessageTitle);
             newResponse.appendChild(humanNewMessage);
 
-            newResponse.appendChild(aiNewMessageTitle);
-            newResponse.appendChild(aiNewMessage);
+            newResponse.appendChild(daveNewMessageTitle);
+            newResponse.appendChild(daveNewMessage);
+
+            newResponse.appendChild(dave2NewMessageTitle);
+            newResponse.appendChild(dave2NewMessage);
 
             responseToPage.appendChild(newResponse);
 
