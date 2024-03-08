@@ -15,9 +15,10 @@
       -npm install express
       -npm install langchain
       -npm install @langchain/openai
+      -npm install @anthropic-ai/sdk
 
-  # Creating an .env file and Azure openai key
-      In the server directory, there will be and env-example text file with the needed information to connect to Azure. Visit the Azure website to get the needed info and an api key. This guide assumes you have the needed information at hand.
+  # Creating an .env file and Azure openai/Anthropics key
+      In the server directory, there will be and env-example text file with the needed information to connect to Azure. Visit the Azure website to get the needed info and an api key. This guide assumes you have the needed information at hand. The same goes for the Anthropics api key.
       
       # Creating an .env file
         - Open the server directory and create a new file called ".env"
